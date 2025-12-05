@@ -16,14 +16,13 @@ jobs:
           java-version: 17
 
       - name: Give gradlew permission
-        run: chmod +x app/gradlew
+        run: chmod +x ./gradlew
 
       - name: Build Debug APK
-        working-directory: ./app
-        run: ./gradlew assembleDebug
+        run: ./gradlew :app:assembleDebug
 
       - name: Upload APK
         uses: actions/upload-artifact@v4
         with:
           name: app-debug
-          path: app/app/build/outputs/apk/debug/*.apk
+          path: app/build/outputs/apk/debug/*.apk
