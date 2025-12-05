@@ -1,12 +1,17 @@
 name: Build LSPosed Module
 
 on:
+  workflow_dispatch:
+
   push:
-    branches: [ master ]
+    branches:
+      - master
     paths:
       - 'app/**'
+
   pull_request:
-    branches: [ master ]
+    branches:
+      - master
     paths:
       - 'app/**'
 
@@ -36,13 +41,3 @@ jobs:
         with:
           name: MCS2MQTT
           path: app/build/outputs/apk/debug/*.apk
-          on:
-  workflow_dispatch:
-  push:
-    branches: [ master ]
-    paths:
-      - 'app/**'
-  pull_request:
-    branches: [ master ]
-    paths:
-      - 'app/**'
